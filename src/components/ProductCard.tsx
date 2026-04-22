@@ -8,9 +8,11 @@ export type Product = {
   price: number;
   emoji: string;
   badge?: string;
+  description?: string;
+  images?: string[]; // extra "photos" represented as emojis/variants
 };
 
-function formatPrice(p: number): string {
+export function formatPrice(p: number): string {
   return new Intl.NumberFormat("es-VE", {
     style: "currency",
     currency: "USD",
@@ -18,13 +20,20 @@ function formatPrice(p: number): string {
   }).format(p);
 }
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  onOpen,
+}: {
+  product: Product;
+  onOpen: (p: Product) => void;
+}) {
   const priceStr = formatPrice(product.price);
   const href = buildWhatsAppUrl(buildProductMessage(product.name, priceStr));
 
   return (
     <article
-      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary"
+      onClick={() => onOpen(product)}
+      className="group flex cursor-pointer flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
       <div className="relative flex aspect-square items-center justify-center bg-muted/60 text-7xl">
@@ -51,6 +60,7 @@ export function ProductCard({ product }: { product: Product }) {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
           className="mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           <ShoppingBag className="h-4 w-4" /> Comprar por WhatsApp
