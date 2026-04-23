@@ -6,10 +6,10 @@ export type Product = {
   name: string;
   category: string;
   price: number;
-  emoji: string;
+  image: string;
   badge?: string;
   description?: string;
-  images?: string[]; // extra "photos" represented as emojis/variants
+  images?: string[]; // Galería de imágenes adicionales para el detalle
 };
 
 export function formatPrice(p: number): string {
@@ -36,15 +36,20 @@ export function ProductCard({
       className="group flex cursor-pointer flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
-      <div className="relative flex aspect-square items-center justify-center bg-muted/60 text-7xl">
+      <div className="relative aspect-square overflow-hidden bg-muted/60">
         {product.badge && (
-          <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+          <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
             {product.badge}
           </span>
         )}
-        <span className="transition-transform duration-300 group-hover:scale-110">
-          {product.emoji}
-        </span>
+        <img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          width={768}
+          height={768}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
       </div>
       <div className="flex flex-1 flex-col p-4">
         <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
