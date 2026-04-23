@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import heroVideo from "@/assets/hero-moto.mp4.asset.json";
 
 export function Hero() {
   return (
@@ -62,11 +63,29 @@ export function Hero() {
         <div className="relative hidden md:block">
           <div className="relative aspect-square">
             <div
-              className="absolute inset-0 rounded-full opacity-30 blur-3xl"
+              className="absolute inset-0 rounded-full opacity-40 blur-3xl"
               style={{ background: "var(--gradient-primary)" }}
             />
-            <div className="relative flex h-full items-center justify-center text-[18rem] leading-none">
-              🏍️
+            <div
+              className="relative h-full w-full overflow-hidden rounded-3xl border border-white/10 shadow-2xl"
+              style={{ boxShadow: "var(--shadow-elegant)" }}
+            >
+              <video
+                src={heroVideo.url}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 60%, oklch(0.15 0.02 250 / 0.4) 100%)",
+                }}
+              />
             </div>
           </div>
         </div>
