@@ -5,5 +5,5 @@ export function buildWhatsAppUrl(message: string): string {
 }
 
 export function buildProductMessage(productName: string, price: string): string {
-  return `Hola Tamoto 👋, estoy interesado en comprar:\n\n*${productName}*\nPrecio: ${price}\n\n¿Está disponible?`;
+  return `Hola Apex Moto 👋, estoy interesado en comprar:\n\n*${productName}*\nPrecio: ${price}\n\n¿Está disponible?`;
 }

@@ -1,6 +1,6 @@
 import { Menu, Search, ShoppingBag, X } from "lucide-react";
 import { useState } from "react";
-import logo from "@/assets/tamoto-logo.png";
+import logo from "@/assets/apex-logo.png";
 
 const NAV = [
   { label: "Inicio", href: "#inicio" },
@@ -18,13 +18,13 @@ export function Header() {
         <a href="#inicio" className="flex items-center gap-2">
           <img
             src={logo}
-            alt="Logo TAMOTO"
+            alt="Logo Apex Moto"
             width={40}
             height={40}
             className="h-10 w-10 object-contain"
           />
           <span className="text-xl font-black tracking-tight">
-            TAMOTO<span className="text-primary">.</span>
+            APEX MOTO<span className="text-primary">.</span>
           </span>
         </a>
 

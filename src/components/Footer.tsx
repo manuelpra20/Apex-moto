@@ -11,7 +11,7 @@ export function Footer() {
               T
             </div>
             <span className="text-xl font-black">
-              TAMOTO<span className="text-primary">.</span>
+              APEX MOTO<span className="text-primary">.</span>
             </span>
           </div>
           <p className="mt-4 text-sm text-white/60">
@@ -35,7 +35,7 @@ export function Footer() {
             <li className="flex items-center gap-2">
               <Phone className="h-4 w-4 text-primary" />
               <a
-                href={buildWhatsAppUrl("Hola Tamoto 👋")}
+                href={buildWhatsAppUrl("Hola Apex Moto 👋")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
@@ -45,7 +45,7 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span>ventas@tamoto.com</span>
+              <span>ventas@apexmoto.com</span>
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
@@ -70,7 +70,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-white/50 md:px-6">
-          © {new Date().getFullYear()} Tamoto. Todos los derechos reservados.
+          © {new Date().getFullYear()} Apex Moto. Todos los derechos reservados.
         </div>
       </div>
     </footer>
