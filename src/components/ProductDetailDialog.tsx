@@ -38,9 +38,10 @@ export function ProductDetailDialog({
 
   const priceStr = formatPrice(product.price);
   const href = buildWhatsAppUrl(buildProductMessage(product.name, priceStr));
-  const images = product.images && product.images.length > 0
-    ? product.images
-    : [product.emoji, product.emoji, product.emoji];
+  const images =
+    product.images && product.images.length > 0
+      ? product.images
+      : [product.image];
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -52,14 +53,25 @@ export function ProductDetailDialog({
               <CarouselContent>
                 {images.map((img, i) => (
                   <CarouselItem key={i}>
-                    <div className="flex aspect-square items-center justify-center text-[10rem] md:text-[12rem]">
-                      <span>{img}</span>
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={img}
+                        alt={`${product.name} - foto ${i + 1}`}
+                        loading="lazy"
+                        width={768}
+                        height={768}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-3" />
-              <CarouselNext className="right-3" />
+              {images.length > 1 && (
+                <>
+                  <CarouselPrevious className="left-3" />
+                  <CarouselNext className="right-3" />
+                </>
+              )}
             </Carousel>
 
             {product.badge && (
@@ -69,22 +81,29 @@ export function ProductDetailDialog({
             )}
 
             {/* Thumbnails */}
-            <div className="flex justify-center gap-2 border-t border-border bg-card/40 p-3">
-              {images.map((img, i) => (
-                <button
-                  key={i}
-                  onClick={() => api?.scrollTo(i)}
-                  aria-label={`Ver foto ${i + 1}`}
-                  className={`flex h-14 w-14 items-center justify-center rounded-md border-2 text-2xl transition-all ${
-                    current === i
-                      ? "border-primary bg-background"
-                      : "border-border bg-muted/40 hover:border-primary/60"
-                  }`}
-                >
-                  {img}
-                </button>
-              ))}
-            </div>
+            {images.length > 1 && (
+              <div className="flex justify-center gap-2 border-t border-border bg-card/40 p-3">
+                {images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => api?.scrollTo(i)}
+                    aria-label={`Ver foto ${i + 1}`}
+                    className={`h-14 w-14 overflow-hidden rounded-md border-2 transition-all ${
+                      current === i
+                        ? "border-primary"
+                        : "border-border hover:border-primary/60"
+                    }`}
+                  >
+                    <img
+                      src={img}
+                      alt=""
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Info */}
@@ -121,7 +140,7 @@ export function ProductDetailDialog({
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-auto inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
+              className="mt-6 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
             >
               <ShoppingBag className="h-4 w-4" /> Comprar por WhatsApp
             </a>
