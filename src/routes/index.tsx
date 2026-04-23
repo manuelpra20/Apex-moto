@@ -10,13 +10,13 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Tamoto — Cascos, repuestos y accesorios para tu moto" },
+      { title: "Apex Moto — Cascos, repuestos y accesorios para tu moto" },
       {
         name: "description",
         content:
           "Tienda online de cascos, repuestos y accesorios para motos en Venezuela. Compra al instante por WhatsApp con envío a todo el país.",
       },
-      { property: "og:title", content: "Tamoto — Tu tienda de motos" },
+      { property: "og:title", content: "Apex Moto — Tu tienda de motos" },
       {
         property: "og:description",
         content:

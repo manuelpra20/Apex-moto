@@ -3,7 +3,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function WhatsAppFloat() {
   const href = buildWhatsAppUrl(
-    "Hola Tamoto 👋, me gustaría recibir más información.",
+    "Hola Apex Moto 👋, me gustaría recibir más información.",
   );
 
   return (
