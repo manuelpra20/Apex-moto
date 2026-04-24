@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Heart } from "lucide-react";
 import { ProductCard, type Product } from "./ProductCard";
 import { ProductDetailDialog } from "./ProductDetailDialog";
@@ -14,6 +14,15 @@ export function Catalog() {
 
   const query = useSearchQuery();
   const { isFavorite, count: favCount } = useFavorites();
+
+  useEffect(() => {
+    function onShowFavs() {
+      setShowFavoritesOnly(true);
+      setFilter("Todos");
+    }
+    window.addEventListener("apex:show-favorites", onShowFavs);
+    return () => window.removeEventListener("apex:show-favorites", onShowFavs);
+  }, []);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
