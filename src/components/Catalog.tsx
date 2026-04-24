@@ -32,7 +32,6 @@ export function Catalog() {
     <section
       id="catalogo"
       className="relative py-16 md:py-24"
-      style={{ background: "oklch(0.12 0.01 20)" }}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-8">
