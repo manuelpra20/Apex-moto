@@ -29,16 +29,20 @@ export function Catalog() {
   };
 
   return (
-    <section id="catalogo" className="py-16 md:py-24">
+    <section
+      id="catalogo"
+      className="relative py-16 md:py-24"
+      style={{ background: "var(--gradient-dark-wine)" }}
+    >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-8">
           <span className="text-xs font-bold uppercase tracking-widest text-primary">
             Nuestra selección
           </span>
-          <h2 className="mt-2 text-3xl font-black tracking-tight md:text-4xl">
+          <h2 className="mt-2 text-3xl font-black tracking-tight text-white md:text-4xl">
             Catálogo destacado
           </h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
+          <p className="mt-3 max-w-2xl text-white/70">
             Haz clic en cualquier producto para ver más fotos y detalles. Compra al instante por WhatsApp.
           </p>
         </div>
@@ -51,7 +55,7 @@ export function Catalog() {
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                 filter === f
                   ? "bg-primary text-primary-foreground"
-                  : "border border-border bg-card text-foreground/70 hover:border-primary hover:text-primary"
+                  : "border border-white/15 bg-white/5 text-white/80 hover:border-primary hover:text-primary"
               }`}
             >
               {f}
