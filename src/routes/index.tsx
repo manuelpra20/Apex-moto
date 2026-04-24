@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Apex Moto — Cascos, repuestos y accesorios para tu moto" },
+      { title: "Apex Moto — Repuestos y accesorios para tu moto" },
       {
         name: "description",
         content:

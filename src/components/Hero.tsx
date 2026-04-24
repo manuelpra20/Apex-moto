@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import heroVideo from "@/assets/hero-moto.mp4.asset.json";
+import heroVideo from "@/assets/prueba2.mp4";
 
 export function Hero() {
   return (
@@ -10,7 +10,7 @@ export function Hero() {
     >
       {/* Video de fondo a todo lo ancho */}
       <video
-        src={heroVideo.url}
+        src={heroVideo}
         autoPlay
         loop
         muted
@@ -22,20 +22,20 @@ export function Hero() {
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(120deg, oklch(0.18 0.03 250 / 0.85) 0%, oklch(0.18 0.03 250 / 0.55) 50%, oklch(0.18 0.03 250 / 0.85) 100%)",
-        }}
+        // style={{
+        //   background:
+        //     "linear-gradient(120deg, oklch(0.18 0.03 250 / 0.85) 0%, oklch(0.18 0.03 250 / 0.55) 50%, oklch(0.18 0.03 250 / 0.85) 100%)",
+        // }}
       />
 
       {/* Acentos rojos radiales */}
       <div
         aria-hidden
         className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 20% 30%, oklch(0.58 0.22 27 / 0.6) 0%, transparent 50%), radial-gradient(circle at 80% 70%, oklch(0.58 0.22 27 / 0.4) 0%, transparent 50%)",
-        }}
+        // style={{
+        //   backgroundImage:
+        //     "radial-gradient(circle at 20% 30%, oklch(0.58 0.22 27 / 0.6) 0%, transparent 50%), radial-gradient(circle at 80% 70%, oklch(0.58 0.22 27 / 0.4) 0%, transparent 50%)",
+        // }}
       />
 
       <div className="relative mx-auto max-w-7xl px-4 py-20 md:px-6 md:py-32 lg:py-40">

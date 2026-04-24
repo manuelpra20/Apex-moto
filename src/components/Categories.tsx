@@ -16,7 +16,7 @@ export function Categories() {
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-10 flex items-end justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary" style={{ color: 'white' , fontWeight: '900'}}>
               Explora
             </span>
             <h2 className="mt-2 text-3xl font-black tracking-tight text-white md:text-4xl">

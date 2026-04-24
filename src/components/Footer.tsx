@@ -1,18 +1,32 @@
+
+
 import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import logo from "@/assets/logo2.png";
 
 export function Footer() {
+
+  const estilos = {
+    maxWidth: '600px',
+    width: '130px',
+    marginLeft: '70px'
+};
   return (
     <footer id="contacto" className="bg-secondary text-secondary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4 md:px-6">
         <div>
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground font-black">
-              T
+            <div className="flex h-9 w-9 items-center justify-center rounded-md text-primary-foreground font-black">
+              <img
+                  src={logo}
+                  style={estilos}
+                  alt="Logo Apex Moto"
+                         
+              />
             </div>
-            <span className="text-xl font-black">
+            {/* <span className="text-xl font-black">
               APEX MOTO<span className="text-primary">.</span>
-            </span>
+            </span> */}
           </div>
           <p className="mt-4 text-sm text-white/60">
             Tu tienda de confianza para todo lo que tu moto necesita. Calidad,
@@ -45,11 +59,11 @@ export function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-primary" />
-              <span>ventas@apexmoto.com</span>
+              <span>alejandrostudios20@gmail.com</span>
             </li>
             <li className="flex items-center gap-2">
               <MapPin className="h-4 w-4 text-primary" />
-              <span>Caracas, Venezuela</span>
+              <span>Valencia, Venezuela</span>
             </li>
           </ul>
         </div>
@@ -58,7 +72,8 @@ export function Footer() {
           <h4 className="text-sm font-bold uppercase tracking-wider">Síguenos</h4>
           <div className="mt-4 flex gap-3">
             <a
-              href="#"
+              href="https://www.instagram.com/apexmotorcyclevzla?igsh=d2RjNWVlZXhlenFh"
+              target="_blank"
               aria-label="Instagram"
               className="flex h-10 w-10 items-center justify-center rounded-md border border-white/10 transition-colors hover:bg-primary"
             >
