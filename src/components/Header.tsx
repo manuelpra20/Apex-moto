@@ -1,9 +1,8 @@
-import { Heart, Menu, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import logo from "@/assets/apex-logo.png";
 import { PRODUCTS } from "@/lib/products";
 import { setSearchQuery, scrollToCatalog } from "@/lib/search-store";
-import { useFavorites } from "@/lib/favorites";
 import { formatPrice } from "@/components/ProductCard";
 
 const NAV = [
@@ -19,7 +18,6 @@ export function Header() {
   const [term, setTerm] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { count: favCount } = useFavorites();
 
   // Cerrar dropdown al click fuera
   useEffect(() => {
@@ -52,13 +50,6 @@ export function Header() {
     setSearchOpen(false);
     setTerm("");
     scrollToCatalog();
-  }
-
-  function showFavorites() {
-    setSearchQuery("");
-    scrollToCatalog();
-    // dispara evento custom para que el catálogo active filtro favoritos
-    window.dispatchEvent(new CustomEvent("apex:show-favorites"));
   }
 
   return (
@@ -173,20 +164,6 @@ export function Header() {
             )}
           </div>
 
-          {/* Favoritos */}
-          <button
-            aria-label="Favoritos"
-            onClick={showFavorites}
-            className="relative hidden h-9 w-9 items-center justify-center rounded-md text-foreground/70 transition-colors hover:bg-muted hover:text-primary md:flex"
-          >
-            <Heart className="h-5 w-5" />
-            {favCount > 0 && (
-              <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
-                {favCount}
-              </span>
-            )}
-          </button>
-
           <button
             aria-label="Menú"
             onClick={() => setOpen(!open)}
@@ -217,20 +194,6 @@ export function Header() {
                 className="h-10 w-full rounded-md border border-border bg-background pl-9 pr-3 text-sm outline-none focus:border-primary"
               />
             </div>
-            <button
-              onClick={() => {
-                showFavorites();
-                setOpen(false);
-              }}
-              className="flex items-center gap-2 rounded-md px-3 py-3 text-base font-medium text-foreground/80 hover:bg-muted hover:text-primary"
-            >
-              <Heart className="h-4 w-4" /> Favoritos
-              {favCount > 0 && (
-                <span className="ml-auto rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-primary-foreground">
-                  {favCount}
-                </span>
-              )}
-            </button>
             {NAV.map((item) => (
               <a
                 key={item.href}
