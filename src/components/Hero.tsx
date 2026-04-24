@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import heroVideo from "@/assets/video-moto.mp4";
+import heroVideo from "@/assets/video-moto.gif";
 
 export function Hero() {
   return (
@@ -9,12 +9,12 @@ export function Hero() {
       style={{ background: "var(--gradient-hero)" }}
     >
       {/* Video de fondo a todo lo ancho */}
-      <video
+      <img
         src={heroVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
+        
+        
+        
+        
         className="absolute inset-0 h-full w-full object-cover opacity-50"
       />
 
