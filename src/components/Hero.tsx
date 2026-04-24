@@ -1,5 +1,5 @@
 import { ChevronRight } from "lucide-react";
-import heroVideo from "@/assets/prueba2.mp4";
+import heroVideo from "@/assets/video-moto.mp4";
 
 export function Hero() {
   return (
