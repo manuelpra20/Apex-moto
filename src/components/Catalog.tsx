@@ -1,158 +1,32 @@
 import { useMemo, useState } from "react";
+import { Heart } from "lucide-react";
 import { ProductCard, type Product } from "./ProductCard";
 import { ProductDetailDialog } from "./ProductDetailDialog";
-
-import cascoIntegral from "@/assets/products/casco-integral.jpg";
-import aceiteMotul from "@/assets/products/aceite-motul.jpg";
-import guantes from "@/assets/products/guantes.jpg";
-import llantaPirelli from "@/assets/products/llanta-pirelli.jpg";
-import cadena from "@/assets/products/cadena.jpg";
-import espejos from "@/assets/products/espejos.jpg";
-import cascoModular from "@/assets/products/casco-modular.jpg";
-import frenosBrembo from "@/assets/products/frenos-brembo.jpg";
-import chaqueta from "@/assets/products/chaqueta.jpg";
-import bujias from "@/assets/products/bujias.jpg";
-import soporteCelular from "@/assets/products/soporte-celular.jpg";
-import cascoCross from "@/assets/products/casco-cross.jpg";
-
-const PRODUCTS: Product[] = [
-  {
-    id: "1",
-    name: "Casco Integral AGV K1 Negro Mate",
-    category: "Cascos",
-    price: 189,
-    image: cascoIntegral,
-    badge: "Nuevo",
-    description:
-      "Casco integral deportivo con calota de policarbonato HIR-TH, ventilación dinámica y visera anti-rayaduras. Homologación ECE 22.05.",
-    images: [cascoIntegral, cascoModular, cascoCross],
-  },
-  {
-    id: "2",
-    name: "Aceite Motul 5100 10W40 Semi-Sintético",
-    category: "Aceites",
-    price: 18,
-    image: aceiteMotul,
-    description:
-      "Aceite semi-sintético tecnología Ester con aditivos especiales para motores 4T. Ideal para uso urbano y carretera.",
-    images: [aceiteMotul],
-  },
-  {
-    id: "3",
-    name: "Guantes Cuero Pro Racing",
-    category: "Indumentaria",
-    price: 45,
-    image: guantes,
-    description:
-      "Guantes de cuero genuino con protecciones de carbono en nudillos y refuerzo en palma. Cierre con velcro ajustable.",
-    images: [guantes],
-  },
-  {
-    id: "4",
-    name: "Llanta Pirelli Diablo Rosso 180/55",
-    category: "Llantas",
-    price: 220,
-    image: llantaPirelli,
-    badge: "Oferta",
-    description:
-      "Neumático deportivo de alto agarre en seco y mojado. Compuesto bi-mezcla para mayor duración. Medida 180/55 ZR17.",
-    images: [llantaPirelli],
-  },
-  {
-    id: "5",
-    name: "Cadena DID 520 X-Ring 120 eslabones",
-    category: "Repuestos",
-    price: 95,
-    image: cadena,
-    description:
-      "Cadena de transmisión con sellos X-Ring de larga duración. 120 eslabones, paso 520. Incluye candado de unión.",
-    images: [cadena],
-  },
-  {
-    id: "6",
-    name: "Espejos Retrovisores Universal CNC",
-    category: "Accesorios",
-    price: 35,
-    image: espejos,
-    description:
-      "Par de espejos CNC en aluminio mecanizado. Rosca universal M10. Diseño aerodinámico con ajuste 360°.",
-    images: [espejos],
-  },
-  {
-    id: "7",
-    name: "Casco Modular LS2 Valiant II",
-    category: "Cascos",
-    price: 245,
-    image: cascoModular,
-    description:
-      "Casco modular con sistema 180° flip-back. Doble visera con pantalla solar interna. Forros desmontables y lavables.",
-    images: [cascoModular, cascoIntegral, cascoCross],
-  },
-  {
-    id: "8",
-    name: "Kit de Frenos Brembo Delantero",
-    category: "Repuestos",
-    price: 130,
-    image: frenosBrembo,
-    badge: "Top",
-    description:
-      "Kit completo de pastillas y discos Brembo para freno delantero. Mayor mordida y resistencia a alta temperatura.",
-    images: [frenosBrembo],
-  },
-  {
-    id: "9",
-    name: "Chaqueta Cordura Impermeable",
-    category: "Indumentaria",
-    price: 165,
-    image: chaqueta,
-    description:
-      "Chaqueta de Cordura 600D con membrana impermeable, protecciones CE en hombros, codos y espalda. Forro térmico extraíble.",
-    images: [chaqueta],
-  },
-  {
-    id: "10",
-    name: "Bujías NGK Iridium (Pack 2)",
-    category: "Repuestos",
-    price: 22,
-    image: bujias,
-    description:
-      "Pack de 2 bujías NGK con electrodo central de iridio. Mejor encendido, menor consumo y mayor vida útil.",
-    images: [bujias],
-  },
-  {
-    id: "11",
-    name: "Soporte Celular Manubrio Aluminio",
-    category: "Accesorios",
-    price: 28,
-    image: soporteCelular,
-    description:
-      'Soporte universal de aluminio con sistema anti-vibración. Compatible con celulares de 4.7" a 7". Rotación 360°.',
-    images: [soporteCelular],
-  },
-  {
-    id: "12",
-    name: "Casco Cross MT Falcon Naranja",
-    category: "Cascos",
-    price: 175,
-    image: cascoCross,
-    badge: "Nuevo",
-    description:
-      "Casco off-road con visera MX, ventilación máxima y construcción ABS ligera. Ideal para enduro y motocross.",
-    images: [cascoCross, cascoIntegral, cascoModular],
-  },
-];
-
-const FILTERS = ["Todos", "Cascos", "Repuestos", "Accesorios", "Aceites", "Llantas", "Indumentaria"];
+import { PRODUCTS, CATEGORIES } from "@/lib/products";
+import { useSearchQuery, setSearchQuery } from "@/lib/search-store";
+import { useFavorites } from "@/lib/favorites";
 
 export function Catalog() {
   const [filter, setFilter] = useState("Todos");
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [selected, setSelected] = useState<Product | null>(null);
   const [open, setOpen] = useState(false);
 
-  const items = useMemo(
-    () => (filter === "Todos" ? PRODUCTS : PRODUCTS.filter((p) => p.category === filter)),
-    [filter],
-  );
+  const query = useSearchQuery();
+  const { isFavorite, count: favCount } = useFavorites();
+
+  const items = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return PRODUCTS.filter((p) => {
+      if (filter !== "Todos" && p.category !== filter) return false;
+      if (showFavoritesOnly && !isFavorite(p.id)) return false;
+      if (q.length > 0) {
+        const haystack = `${p.name} ${p.category} ${p.description ?? ""}`.toLowerCase();
+        if (!haystack.includes(q)) return false;
+      }
+      return true;
+    });
+  }, [filter, query, showFavoritesOnly, isFavorite]);
 
   const handleOpen = (p: Product) => {
     setSelected(p);
@@ -174,8 +48,8 @@ export function Catalog() {
           </p>
         </div>
 
-        <div className="mb-8 flex flex-wrap gap-2">
-          {FILTERS.map((f) => (
+        <div className="mb-8 flex flex-wrap items-center gap-2">
+          {CATEGORIES.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
@@ -188,13 +62,52 @@ export function Catalog() {
               {f}
             </button>
           ))}
+          <button
+            onClick={() => setShowFavoritesOnly((v) => !v)}
+            className={`ml-auto inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
+              showFavoritesOnly
+                ? "bg-primary text-primary-foreground"
+                : "border border-border bg-card text-foreground/70 hover:border-primary hover:text-primary"
+            }`}
+          >
+            <Heart
+              className="h-4 w-4"
+              fill={showFavoritesOnly ? "currentColor" : "none"}
+            />
+            Favoritos {favCount > 0 && `(${favCount})`}
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {items.map((p) => (
-            <ProductCard key={p.id} product={p} onOpen={handleOpen} />
-          ))}
-        </div>
+        {query.trim() && (
+          <div className="mb-4 flex items-center justify-between rounded-lg border border-border bg-card px-4 py-2 text-sm">
+            <span className="text-muted-foreground">
+              Mostrando resultados para{" "}
+              <span className="font-semibold text-foreground">"{query}"</span> ·{" "}
+              {items.length} {items.length === 1 ? "artículo" : "artículos"}
+            </span>
+            <button
+              onClick={() => setSearchQuery("")}
+              className="font-semibold text-primary hover:underline"
+            >
+              Limpiar
+            </button>
+          </div>
+        )}
+
+        {items.length === 0 ? (
+          <div className="rounded-xl border border-dashed border-border bg-card/50 p-12 text-center">
+            <p className="text-lg font-semibold">No encontramos artículos</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Intenta con otra búsqueda o cambia los filtros.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {items.map((p) => (
+              <ProductCard key={p.id} product={p} onOpen={handleOpen} />
+            ))}
+          </div>
+        )}
       </div>
 
       <ProductDetailDialog
