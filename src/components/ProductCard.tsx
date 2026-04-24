@@ -1,6 +1,5 @@
-import { Heart, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { buildProductMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
-import { useFavorites } from "@/lib/favorites";
 
 export type Product = {
   id: string;
@@ -30,8 +29,6 @@ export function ProductCard({
 }) {
   const priceStr = formatPrice(product.price);
   const href = buildWhatsAppUrl(buildProductMessage(product.name, priceStr));
-  const { isFavorite, toggle } = useFavorites();
-  const fav = isFavorite(product.id);
 
   return (
     <article
@@ -45,19 +42,6 @@ export function ProductCard({
             {product.badge}
           </span>
         )}
-        <button
-          aria-label={fav ? "Quitar de favoritos" : "Agregar a favoritos"}
-          onClick={(e) => {
-            e.stopPropagation();
-            toggle(product.id);
-          }}
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-background/80 text-foreground/70 backdrop-blur transition-all hover:scale-110 hover:text-primary"
-        >
-          <Heart
-            className={`h-5 w-5 transition-colors ${fav ? "text-primary" : ""}`}
-            fill={fav ? "currentColor" : "none"}
-          />
-        </button>
         <img
           src={product.image}
           alt={product.name}

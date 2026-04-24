@@ -1,41 +1,27 @@
-import { useEffect, useMemo, useState } from "react";
-import { Heart } from "lucide-react";
+import { useMemo, useState } from "react";
 import { ProductCard, type Product } from "./ProductCard";
 import { ProductDetailDialog } from "./ProductDetailDialog";
 import { PRODUCTS, CATEGORIES } from "@/lib/products";
 import { useSearchQuery, setSearchQuery } from "@/lib/search-store";
-import { useFavorites } from "@/lib/favorites";
 
 export function Catalog() {
   const [filter, setFilter] = useState("Todos");
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [selected, setSelected] = useState<Product | null>(null);
   const [open, setOpen] = useState(false);
 
   const query = useSearchQuery();
-  const { isFavorite, count: favCount } = useFavorites();
-
-  useEffect(() => {
-    function onShowFavs() {
-      setShowFavoritesOnly(true);
-      setFilter("Todos");
-    }
-    window.addEventListener("apex:show-favorites", onShowFavs);
-    return () => window.removeEventListener("apex:show-favorites", onShowFavs);
-  }, []);
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase();
     return PRODUCTS.filter((p) => {
       if (filter !== "Todos" && p.category !== filter) return false;
-      if (showFavoritesOnly && !isFavorite(p.id)) return false;
       if (q.length > 0) {
         const haystack = `${p.name} ${p.category} ${p.description ?? ""}`.toLowerCase();
         if (!haystack.includes(q)) return false;
       }
       return true;
     });
-  }, [filter, query, showFavoritesOnly, isFavorite]);
+  }, [filter, query]);
 
   const handleOpen = (p: Product) => {
     setSelected(p);
@@ -71,20 +57,6 @@ export function Catalog() {
               {f}
             </button>
           ))}
-          <button
-            onClick={() => setShowFavoritesOnly((v) => !v)}
-            className={`ml-auto inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
-              showFavoritesOnly
-                ? "bg-primary text-primary-foreground"
-                : "border border-border bg-card text-foreground/70 hover:border-primary hover:text-primary"
-            }`}
-          >
-            <Heart
-              className="h-4 w-4"
-              fill={showFavoritesOnly ? "currentColor" : "none"}
-            />
-            Favoritos {favCount > 0 && `(${favCount})`}
-          </button>
         </div>
 
         {query.trim() && (
