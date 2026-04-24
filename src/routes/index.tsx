@@ -32,8 +32,10 @@ function Index() {
       <Header />
       <main>
         <Hero />
-        <Categories />
-        <Catalog />
+        <div style={{ background: "var(--gradient-dark-wine)" }}>
+          <Categories />
+          <Catalog />
+        </div>
       </main>
       <Footer />
       <WhatsAppFloat />

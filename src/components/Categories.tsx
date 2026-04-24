@@ -12,7 +12,6 @@ export function Categories() {
     <section
       id="categorias"
       className="relative py-16 md:py-24"
-      style={{ background: "var(--gradient-dark-wine)" }}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-10 flex items-end justify-between">
