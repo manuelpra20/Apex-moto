@@ -88,6 +88,7 @@
   --whatsapp: oklch(0.65 0.17 152);
   --gradient-hero: linear-gradient(135deg, oklch(0.18 0.02 260) 0%, oklch(0.25 0.05 20) 100%);
   --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-dark-wine: linear-gradient(135deg, oklch(0.12 0.01 20) 0%, oklch(0.18 0.08 15) 45%, oklch(0.28 0.14 18) 100%);
   --shadow-elegant: 0 10px 30px -10px color-mix(in oklab, var(--primary) 40%, transparent);
   --shadow-card: 0 4px 20px -4px oklch(0 0 0 / 0.1);
   --chart-1: oklch(0.646 0.222 41.116);
