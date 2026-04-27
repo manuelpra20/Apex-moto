@@ -1,13 +1,8 @@
 [build]
-  # This is the command that generates your site
   command = "npm run build"
-  
-  # This is the folder that contains the built index.html
   publish = "dist"
 
 [[redirects]]
-  # This tells Netlify to send all requests to index.html 
-  # so React Router can handle them internally.
   from = "/*"
   to = "/index.html"
   status = 200
