@@ -1,0 +1,19 @@
+[build]
+  command = "bun run build && bun run prerender"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — any unmatched route serves index.html so client-side
+# routing (TanStack Router) can take over without a 404 on refresh.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Long-cache hashed assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
