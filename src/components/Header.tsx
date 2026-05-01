@@ -2,16 +2,17 @@
 
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import logo from "@/assets/logo2.png";
 import { PRODUCTS } from "@/lib/products";
 import { setSearchQuery, scrollToCatalog } from "@/lib/search-store";
 import { formatPrice } from "@/components/ProductCard";
 
 const NAV = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Catálogo", href: "#catalogo" },
-  { label: "Categorías", href: "#categorias" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", hash: "inicio" },
+  { label: "Catálogo", hash: "catalogo" },
+  { label: "Categorías", hash: "categorias" },
+  { label: "Contacto", hash: "contacto" },
 ];
 
 const estilos = {
