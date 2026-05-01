@@ -141,6 +141,15 @@ const RAW_PRODUCTS: Product[] = [
   },
 ];
 
+export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p) => ({
+  ...p,
+  slug: p.slug ?? slugify(p.name),
+}));
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.slug === slug);
+}
+
 export const CATEGORIES = [
   "Todos",
   "Cascos",
