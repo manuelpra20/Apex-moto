@@ -28,6 +28,17 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    // esperar a que monte el contenido
+    const t = setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
