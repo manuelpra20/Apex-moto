@@ -28,6 +28,21 @@ export function Header() {
   const [term, setTerm] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  function handleNavClick(e: React.MouseEvent, hash: string) {
+    e.preventDefault();
+    setOpen(false);
+    if (pathname !== "/") {
+      navigate({ to: "/", hash });
+    } else {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", `#${hash}`);
+    }
+  }
 
   // Cerrar dropdown al click fuera
   useEffect(() => {
