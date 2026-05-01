@@ -14,7 +14,7 @@ import bujias from "@/assets/products/bujias.jpg";
 import soporteCelular from "@/assets/products/soporte-celular.jpg";
 import cascoCross from "@/assets/products/casco-cross.jpg";
 
-export const PRODUCTS: Product[] = [
+const RAW_PRODUCTS: Product[] = [
   {
     id: "1",
     name: "Casco Integral AGV K1 Negro Mate",
