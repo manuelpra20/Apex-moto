@@ -221,9 +221,9 @@ export function Header() {
             </div>
             {NAV.map((item) => (
               <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
+                key={item.hash}
+                href={`/#${item.hash}`}
+                onClick={(e) => handleNavClick(e, item.hash)}
                 className="rounded-md px-3 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
               >
                 {item.label}
