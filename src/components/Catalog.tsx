@@ -1,14 +1,10 @@
 import { useMemo, useState } from "react";
-import { ProductCard, type Product } from "./ProductCard";
-import { ProductDetailDialog } from "./ProductDetailDialog";
+import { ProductCard } from "./ProductCard";
 import { PRODUCTS, CATEGORIES } from "@/lib/products";
 import { useSearchQuery, setSearchQuery } from "@/lib/search-store";
 
 export function Catalog() {
   const [filter, setFilter] = useState("Todos");
-  const [selected, setSelected] = useState<Product | null>(null);
-  const [open, setOpen] = useState(false);
-
   const query = useSearchQuery();
 
   const items = useMemo(() => {
@@ -23,19 +19,18 @@ export function Catalog() {
     });
   }, [filter, query]);
 
-  const handleOpen = (p: Product) => {
-    setSelected(p);
-    setOpen(true);
-  };
-
   return (
     <section
       id="catalogo"
-      className="relative py-16 md:py-14" style={{ marginTop: '-50px' }}
+      className="relative py-16 md:py-14"
+      style={{ marginTop: "-50px" }}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-6">
         <div className="mb-8">
-          <span className="text-xs font-bold uppercase tracking-widest text-primary" style={{ color: 'white' , fontWeight: '900'}}>
+          <span
+            className="text-xs font-bold uppercase tracking-widest text-primary"
+            style={{ color: "white", fontWeight: "900" }}
+          >
             Nuestra selección
           </span>
           <h2 className="mt-2 text-3xl font-black tracking-tight text-white md:text-4xl">
@@ -88,17 +83,11 @@ export function Catalog() {
         ) : (
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {items.map((p) => (
-              <ProductCard key={p.id} product={p} onOpen={handleOpen} />
+              <ProductCard key={p.id} product={p} />
             ))}
           </div>
         )}
       </div>
-
-      <ProductDetailDialog
-        product={selected}
-        open={open}
-        onOpenChange={setOpen}
-      />
     </section>
   );
 }
