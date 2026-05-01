@@ -2,16 +2,17 @@
 
 import { Menu, Search, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import logo from "@/assets/logo2.png";
 import { PRODUCTS } from "@/lib/products";
 import { setSearchQuery, scrollToCatalog } from "@/lib/search-store";
 import { formatPrice } from "@/components/ProductCard";
 
 const NAV = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Catálogo", href: "#catalogo" },
-  { label: "Categorías", href: "#categorias" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", hash: "inicio" },
+  { label: "Catálogo", hash: "catalogo" },
+  { label: "Categorías", hash: "categorias" },
+  { label: "Contacto", hash: "contacto" },
 ];
 
 const estilos = {
@@ -27,6 +28,21 @@ export function Header() {
   const [term, setTerm] = useState("");
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  function handleNavClick(e: React.MouseEvent, hash: string) {
+    e.preventDefault();
+    setOpen(false);
+    if (pathname !== "/") {
+      navigate({ to: "/", hash });
+    } else {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      else window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", `#${hash}`);
+    }
+  }
 
   // Cerrar dropdown al click fuera
   useEffect(() => {
@@ -64,7 +80,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 md:px-6">
-        <a href="#inicio" className="flex items-center gap-2">
+        <a href="/#inicio" onClick={(e) => handleNavClick(e, "inicio")} className="flex items-center gap-2">
           <img
             src={logo}
             style={estilos}
@@ -79,8 +95,9 @@ export function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={item.hash}
+              href={`/#${item.hash}`}
+              onClick={(e) => handleNavClick(e, item.hash)}
               className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
               {item.label}
@@ -204,9 +221,9 @@ export function Header() {
             </div>
             {NAV.map((item) => (
               <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
+                key={item.hash}
+                href={`/#${item.hash}`}
+                onClick={(e) => handleNavClick(e, item.hash)}
                 className="rounded-md px-3 py-3 text-base font-medium text-foreground/80 transition-colors hover:bg-muted hover:text-primary"
               >
                 {item.label}
