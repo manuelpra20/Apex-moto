@@ -15,8 +15,37 @@ const ROOT = process.cwd();
 const CLIENT_DIR = join(ROOT, "dist", "client");
 const SERVER_DIR = join(ROOT, "dist", "server");
 
-// Routes to prerender. Add more here as you create more pages.
-const ROUTES = ["/"];
+// Helper para slugificar (debe coincidir con src/lib/slug.ts)
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+// Lista de productos a prerender — debe mantenerse alineada con src/lib/products.ts
+// (solo necesitamos los nombres para generar los slugs)
+const PRODUCT_NAMES = [
+  "Casco Integral AGV K1 Negro Mate",
+  "Aceite Motul 5100 10W40 Semi-Sintético",
+  "Guantes Cuero Pro Racing",
+  "Llanta Pirelli Diablo Rosso 180/55",
+  "Cadena DID 520 X-Ring 120 eslabones",
+  "Espejos Retrovisores Universal CNC",
+  "Casco Modular LS2 Valiant II",
+  "Kit de Frenos Brembo Delantero",
+  "Chaqueta Cordura Impermeable",
+  "Bujías NGK Iridium (Pack 2)",
+  "Soporte Celular Manubrio Aluminio",
+  "Casco Cross MT Falcon Naranja",
+];
+
+// Rutas a prerender. Añade más aquí cuando crees nuevas páginas.
+const ROUTES = ["/", ...PRODUCT_NAMES.map((name) => `/producto/${slugify(name)}`)];
 
 if (!existsSync(SERVER_DIR)) {
   console.error("✗ dist/server not found — run `vite build` first.");

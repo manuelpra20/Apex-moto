@@ -1,8 +1,10 @@
 import { ShoppingBag } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { buildProductMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export type Product = {
   id: string;
+  slug?: string;
   name: string;
   category: string;
   price: number;
@@ -20,23 +22,22 @@ export function formatPrice(p: number): string {
   }).format(p);
 }
 
-export function ProductCard({
-  product,
-  onOpen,
-}: {
-  product: Product;
-  onOpen: (p: Product) => void;
-}) {
+export function ProductCard({ product }: { product: Product }) {
   const priceStr = formatPrice(product.price);
   const href = buildWhatsAppUrl(buildProductMessage(product.name, priceStr));
+  const slug = product.slug ?? product.id;
 
   return (
     <article
-      onClick={() => onOpen(product)}
-      className="group flex cursor-pointer flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all hover:-translate-y-1 hover:border-primary"
       style={{ boxShadow: "var(--shadow-card)" }}
     >
-      <div className="relative aspect-square overflow-hidden bg-muted/60">
+      <Link
+        to="/producto/$slug"
+        params={{ slug }}
+        className="relative block aspect-square overflow-hidden bg-muted/60"
+        aria-label={`Ver detalles de ${product.name}`}
+      >
         {product.badge && (
           <span className="absolute left-3 top-3 z-10 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
             {product.badge}
@@ -50,14 +51,18 @@ export function ProductCard({
           height={768}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-      </div>
+      </Link>
       <div className="flex flex-1 flex-col p-4">
         <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
           {product.category}
         </span>
-        <h3 className="mt-1 line-clamp-2 text-base font-bold text-foreground">
+        <Link
+          to="/producto/$slug"
+          params={{ slug }}
+          className="mt-1 line-clamp-2 text-base font-bold text-foreground hover:text-primary"
+        >
           {product.name}
-        </h3>
+        </Link>
         <div className="mt-3 flex items-baseline gap-2">
           <span className="text-2xl font-black text-primary">{priceStr}</span>
         </div>
@@ -65,7 +70,6 @@ export function ProductCard({
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
           className="mt-4 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-4 py-2.5 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           <ShoppingBag className="h-4 w-4" /> Comprar por WhatsApp

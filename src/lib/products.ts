@@ -1,4 +1,5 @@
 import type { Product } from "@/components/ProductCard";
+import { slugify } from "@/lib/slug";
 
 import cascoIntegral from "@/assets/products/casco-integral.jpg";
 import aceiteMotul from "@/assets/products/aceite-motul.jpg";
@@ -13,7 +14,7 @@ import bujias from "@/assets/products/bujias.jpg";
 import soporteCelular from "@/assets/products/soporte-celular.jpg";
 import cascoCross from "@/assets/products/casco-cross.jpg";
 
-export const PRODUCTS: Product[] = [
+const RAW_PRODUCTS: Product[] = [
   {
     id: "1",
     name: "Casco Integral AGV K1 Negro Mate",
@@ -139,6 +140,15 @@ export const PRODUCTS: Product[] = [
     images: [cascoCross, cascoIntegral, cascoModular],
   },
 ];
+
+export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p) => ({
+  ...p,
+  slug: p.slug ?? slugify(p.name),
+}));
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return PRODUCTS.find((p) => p.slug === slug);
+}
 
 export const CATEGORIES = [
   "Todos",
