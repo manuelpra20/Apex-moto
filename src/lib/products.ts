@@ -1,4 +1,5 @@
 import type { Product } from "@/components/ProductCard";
+import { slugify } from "@/lib/slug";
 
 import cascoIntegral from "@/assets/products/casco-integral.jpg";
 import aceiteMotul from "@/assets/products/aceite-motul.jpg";
