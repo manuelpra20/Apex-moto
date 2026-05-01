@@ -95,8 +95,9 @@ export function Header() {
         <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <a
-              key={item.href}
-              href={item.href}
+              key={item.hash}
+              href={`/#${item.hash}`}
+              onClick={(e) => handleNavClick(e, item.hash)}
               className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
               {item.label}
