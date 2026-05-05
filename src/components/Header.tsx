@@ -148,7 +148,11 @@ export function Header() {
                         {results.map((p) => (
                           <li key={p.id}>
                             <button
-                              onClick={() => applySearch(p.name)}
+                              onClick={() => {
+                                setSearchOpen(false);
+                                setTerm("");
+                                navigate({ to: "/producto/$slug", params: { slug: p.slug } });
+                              }}
                               className="flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors hover:bg-muted"
                             >
                               <img
