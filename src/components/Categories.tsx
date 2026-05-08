@@ -5,6 +5,7 @@ const CATEGORIES = [
   { name: "Aceites", icon: "🛢️", count: 48 },
   { name: "Cauchos", icon: "🛞", count: 76 },
   { name: "Indumentaria", icon: "🧥", count: 92 },
+  { name: "Herramientas", icon: "🛠️", count: 0 },
 ];
 
 export function Categories() {

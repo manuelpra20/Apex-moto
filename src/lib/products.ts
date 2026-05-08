@@ -171,4 +171,5 @@ export const CATEGORIES = [
   "Aceites",
   "Cauchos",
   "Indumentaria",
+  "Herramientas",
 ];
