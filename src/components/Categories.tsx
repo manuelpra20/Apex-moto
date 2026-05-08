@@ -3,7 +3,7 @@ const CATEGORIES = [
   { name: "Repuestos", icon: "⚙️", count: 320 },
   { name: "Accesorios", icon: "🧰", count: 215 },
   { name: "Aceites", icon: "🛢️", count: 48 },
-  { name: "Llantas", icon: "🛞", count: 76 },
+  { name: "Cauchos", icon: "🛞", count: 76 },
   { name: "Indumentaria", icon: "🧥", count: 92 },
 ];
 

@@ -17,7 +17,7 @@ export type Product = {
 export function formatPrice(p: number): string {
   return new Intl.NumberFormat("es-VE", {
     style: "currency",
-    currency: "USD",
+    currency: "EUR",
     maximumFractionDigits: 2,
   }).format(p);
 }

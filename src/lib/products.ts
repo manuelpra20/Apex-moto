@@ -2,17 +2,18 @@ import type { Product } from "@/components/ProductCard";
 import { slugify } from "@/lib/slug";
 
 import cascoIntegral from "@/assets/products/casco-integral.jpg";
-import aceiteMotul from "@/assets/products/aceite-motul.jpg";
+import aceiteMotul from "@/assets/products/motul.jpeg";
 import guantes from "@/assets/products/guantes.jpg";
 import llantaPirelli from "@/assets/products/llanta-pirelli.jpg";
 import cadena from "@/assets/products/cadena.jpg";
-import espejos from "@/assets/products/espejos.jpg";
+import espejos from "@/assets/products/retrovisor-dr.jpeg";
 import cascoModular from "@/assets/products/casco-modular.jpg";
 import frenosBrembo from "@/assets/products/frenos-brembo.jpg";
 import chaqueta from "@/assets/products/chaqueta.jpg";
 import bujias from "@/assets/products/bujias.jpg";
-import soporteCelular from "@/assets/products/soporte-celular.jpg";
+import soporteCelular from "@/assets/products/porta-telefono.jpeg";
 import cascoCross from "@/assets/products/casco-cross.jpg";
+import Guaya from "@/assets/products/guaya-acelerador.jpg";
 
 const RAW_PRODUCTS: Product[] = [
   {
@@ -28,12 +29,12 @@ const RAW_PRODUCTS: Product[] = [
   },
   {
     id: "2",
-    name: "Aceite Motul 5100 10W40 Semi-Sintético",
+    name: "Aceite Motul 5100 15W50 Semi-Sintético",
     category: "Aceites",
     price: 18,
     image: aceiteMotul,
     description:
-      "Aceite semi-sintético tecnología Ester con aditivos especiales para motores 4T. Ideal para uso urbano y carretera.",
+      "El Motul 5100 4T es un lubricante semisintético de alto rendimiento, reforzado con Esteres, diseñado para motores de motocicletas de 4 tiempos (carretera, enduro, trail, cross), garantizando la protección del motor y caja de cambios. Destaca por mejorar la suavidad en los cambios de marcha y ofrecer alta resistencia a altas temperaturas.",
     images: [aceiteMotul],
   },
   {
@@ -49,7 +50,7 @@ const RAW_PRODUCTS: Product[] = [
   {
     id: "4",
     name: "Llanta Pirelli Diablo Rosso 180/55",
-    category: "Llantas",
+    category: "Cauchos",
     price: 220,
     image: llantaPirelli,
     badge: "Oferta",
@@ -63,18 +64,19 @@ const RAW_PRODUCTS: Product[] = [
     category: "Repuestos",
     price: 95,
     image: cadena,
+      badge: "Agotado",
     description:
       "Cadena de transmisión con sellos X-Ring de larga duración. 120 eslabones, paso 520. Incluye candado de unión.",
     images: [cadena],
   },
   {
     id: "6",
-    name: "Espejos Retrovisores Universal CNC",
+    name: "Espejos Retrovisores DR",
     category: "Accesorios",
-    price: 35,
+    price: 14,
     image: espejos,
     description:
-      "Par de espejos CNC en aluminio mecanizado. Rosca universal M10. Diseño aerodinámico con ajuste 360°.",
+      "Espejos Retrovisores Kit Suzuki Dr 650. Rosca universal de metal. Diseño aerodinámico con ajuste, Ideal para tx, lechuza, Rex, GR.",
     images: [espejos],
   },
   {
@@ -120,12 +122,12 @@ const RAW_PRODUCTS: Product[] = [
   },
   {
     id: "11",
-    name: "Soporte Celular Manubrio Aluminio",
+    name: "SOPORTE PORTA TELEFONO IMPERMEABLE",
     category: "Accesorios",
-    price: 28,
+    price: 10,
     image: soporteCelular,
     description:
-      'Soporte universal de aluminio con sistema anti-vibración. Compatible con celulares de 4.7" a 7". Rotación 360°.',
+      'Soporte universal y/o Base Porta Teléfono Impermeable Para Volante de Motos. Compatible con la mayoría de los smartphones. Diseño resistente al agua y vibraciones.',
     images: [soporteCelular],
   },
   {
@@ -138,6 +140,17 @@ const RAW_PRODUCTS: Product[] = [
     description:
       "Casco off-road con visera MX, ventilación máxima y construcción ABS ligera. Ideal para enduro y motocross.",
     images: [cascoCross, cascoIntegral, cascoModular],
+  },
+  {
+    id: "13",
+    name: "GUAYA ACELERADOR TX150, DSR",
+    category: "Repuestos",
+    price: 9,
+    image: Guaya,
+    badge: "Nuevo",
+    description:
+      "Guaya De Aceleracion (tx 150), DSR. Repuesto original de alta calidad para garantizar un rendimiento óptimo y duradero en tu motocicleta. Compatible con modelos específicos, esta guaya de aceleración es fácil de instalar y proporciona una respuesta suave y precisa al acelerar, mejorando la experiencia de conducción.",
+    images: [Guaya],
   },
 ];
 
@@ -156,6 +169,6 @@ export const CATEGORIES = [
   "Repuestos",
   "Accesorios",
   "Aceites",
-  "Llantas",
+  "Cauchos",
   "Indumentaria",
 ];
