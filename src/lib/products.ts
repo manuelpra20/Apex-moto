@@ -8,24 +8,35 @@ import llantaPirelli from "@/assets/products/llanta-pirelli.jpg";
 import cadena from "@/assets/products/cadena.jpg";
 import espejos from "@/assets/products/retrovisor-dr.jpeg";
 import cascoModular from "@/assets/products/casco-modular.jpg";
-import frenosBrembo from "@/assets/products/frenos-brembo.jpg";
-import chaqueta from "@/assets/products/chaqueta.jpg";
-import bujias from "@/assets/products/bujias.jpg";
 import soporteCelular from "@/assets/products/porta-telefono.jpeg";
 import cascoCross from "@/assets/products/casco-cross.jpg";
 import Guaya from "@/assets/products/guaya-acelerador.jpg";
+import Radios from "@/assets/products/radios-par.jpg";
+import FaroLedCuadrado from "@/assets/products/lupas-dos.jpg";
+import JuegoDados from "@/assets/products/juegos-dados.jpg";
+import FarolupasCuadrada from "@/assets/products/lupas-cuadrado.jpg";
+import LedBuho from "@/assets/products/mini-buho.jpg";
+import Bases from "@/assets/products/bases-par.jpg";
+import cepilloCadena from "@/assets/products/cepillo-cadena.jpg";
+import LuzLedLupa from "@/assets/products/lupas-uno.jpg";
+import MallaPulo from "@/assets/products/malla-moto.jpg";
+import ProtectorZapato from "@/assets/products/protector-zapato.jpg";
+import Portaplaca from "@/assets/products/porta-placas.jpg";
+import FaroLedRectangular from "@/assets/products/lupas-rectangular.jpg";
+import Forro from "@/assets/products/forro-asient.jpg";
+import Candado from "@/assets/products/candado-moto.jpg";
 
 const RAW_PRODUCTS: Product[] = [
   {
     id: "1",
-    name: "Casco Integral AGV K1 Negro Mate",
-    category: "Cascos",
-    price: 189,
-    image: cascoIntegral,
-    badge: "Nuevo",
+    name: "JUEGO DE RADIOS CON AURICULAR BAOFENG",
+    category: "Accesorios",
+    price: 32,
+    image: Radios,
+    badge: "Mas Vendido",
     description:
-      "Casco integral deportivo con calota de policarbonato HIR-TH, ventilación dinámica y visera anti-rayaduras. Homologación ECE 22.05.",
-    images: [cascoIntegral, cascoModular, cascoCross],
+      "Radio Walkie Talkie Baofeng 888s 16 Canales Pack De 2und. Ideal para comunicación en Rutas.",
+    images: [Radios],
   },
   {
     id: "2",
@@ -39,35 +50,35 @@ const RAW_PRODUCTS: Product[] = [
   },
   {
     id: "3",
-    name: "Guantes Cuero Pro Racing",
-    category: "Indumentaria",
-    price: 45,
-    image: guantes,
-    description:
-      "Guantes de cuero genuino con protecciones de carbono en nudillos y refuerzo en palma. Cierre con velcro ajustable.",
-    images: [guantes],
+    name: "PAR FAROS LED 4 LUPAS 5 TONOS 6X6cm",
+    category: "Accesorios",
+    price: 17,
+    image: FarolupasCuadrada,
+    badge: "Mas Vendido",
+    description: "Par Faros led Auxiliares 4 Lupas, Iluminación potente con 5 tonos de luz: (Ambar, blanco frío, Ambar y blanco, Estrobo y rojo).",
+    images: [FarolupasCuadrada],
   },
   {
     id: "4",
-    name: "Llanta Pirelli Diablo Rosso 180/55",
+    name: "PAR Cauchos Timsun",
     category: "Cauchos",
     price: 220,
     image: llantaPirelli,
-    badge: "Oferta",
+    badge: "Agotado",
     description:
-      "Neumático deportivo de alto agarre en seco y mojado. Compuesto bi-mezcla para mayor duración. Medida 180/55 ZR17.",
+      "Caucho multiproposito de alto agarre en seco y mojado. Compuesto bi-mezcla para mayor duración. Medida 110/80-19 Y 150/70-17.",
     images: [llantaPirelli],
   },
   {
     id: "5",
-    name: "Cadena DID 520 X-Ring 120 eslabones",
-    category: "Repuestos",
-    price: 95,
-    image: cadena,
-      badge: "Agotado",
+    name: "BASE DE LUCES AUXILIARES PAR MOTOS",
+    category: "Accesorios",
+    price: 12,
+    image: Bases,
+    badge: "Nuevo",
     description:
-      "Cadena de transmisión con sellos X-Ring de larga duración. 120 eslabones, paso 520. Incluye candado de unión.",
-    images: [cadena],
+      "Par Bases De Metal Soportes De Luces Exploradoras Auxiliares Para Motos. Compatible con la mayoría de las luces auxiliares del mercado. Diseño resistente al agua y vibraciones.",
+    images: [Bases],
   },
   {
     id: "6",
@@ -81,44 +92,43 @@ const RAW_PRODUCTS: Product[] = [
   },
   {
     id: "7",
-    name: "Casco Modular LS2 Valiant II",
-    category: "Cascos",
-    price: 245,
-    image: cascoModular,
+    name: "PAR FAROS LED TIPO LUPAS 4 TONOS",
+    category: "Accesorios",
+    price: 14,
+    badge: "Mas Vendido",
+    image: FaroLedCuadrado,
     description:
-      "Casco modular con sistema 180° flip-back. Doble visera con pantalla solar interna. Forros desmontables y lavables.",
-    images: [cascoModular, cascoIntegral, cascoCross],
+      "Faro Led Tipo Lupa Con Base y tornillos para defensas de Moto. Iluminación potente con 4 tonos de luz (Rojo, Ambar, blanco frío y Estrobo). Diseño resistente al agua y vibraciones. Ideal para mejorar la visibilidad en rutas nocturnas o condiciones climáticas adversas.",
+    images: [FaroLedCuadrado],
   },
   {
     id: "8",
-    name: "Kit de Frenos Brembo Delantero",
-    category: "Repuestos",
-    price: 130,
-    image: frenosBrembo,
-    badge: "Top",
-    description:
-      "Kit completo de pastillas y discos Brembo para freno delantero. Mayor mordida y resistencia a alta temperatura.",
-    images: [frenosBrembo],
+    name: "JUEGO DE DADOS 12 PZ",
+    category: "Herramientas",
+    price: 12,
+    image: JuegoDados,
+    description:  "Juego De Dados Milimétricos De 12 Piezas Con Rachet Grande y extensor",
+    images: [JuegoDados],
   },
   {
     id: "9",
-    name: "Chaqueta Cordura Impermeable",
+    name: "PROTECTOR DE ZAPATO NEGRO PARA MOTOS",
     category: "Indumentaria",
-    price: 165,
-    image: chaqueta,
+    price: 5,
+    image: ProtectorZapato,
     description:
-      "Chaqueta de Cordura 600D con membrana impermeable, protecciones CE en hombros, codos y espalda. Forro térmico extraíble.",
-    images: [chaqueta],
+      "Protector De Zapatos Para Motociclista (Pedal de Cambio)",
+    images: [ProtectorZapato],
   },
   {
     id: "10",
-    name: "Bujías NGK Iridium (Pack 2)",
-    category: "Repuestos",
-    price: 22,
-    image: bujias,
+    name: "PAR FAROS LED MINI BUHO 4 TONOS",
+    category: "Accesorios",
+    price: 15,
+    image: LedBuho,
     description:
-      "Pack de 2 bujías NGK con electrodo central de iridio. Mejor encendido, menor consumo y mayor vida útil.",
-    images: [bujias],
+      "Faros Led Mini Buo AntiNiebla De Conducción Para Motocicleta. Iluminación potente con 4 tonos de luz: (Ambar, blanco frío, Ambar y blanco y Estrobo). Diseño resistente al agua y vibraciones. Ideal para mejorar la visibilidad en rutas nocturnas o condiciones climáticas adversas.",
+    images: [LedBuho],
   },
   {
     id: "11",
@@ -132,14 +142,13 @@ const RAW_PRODUCTS: Product[] = [
   },
   {
     id: "12",
-    name: "Casco Cross MT Falcon Naranja",
-    category: "Cascos",
-    price: 175,
-    image: cascoCross,
-    badge: "Nuevo",
+    name: "CEPILLO LIMPIA CADENA PARA MOTOS",
+    category: "Herramientas",
+    price: 4,
+    image: cepilloCadena,
     description:
-      "Casco off-road con visera MX, ventilación máxima y construcción ABS ligera. Ideal para enduro y motocross.",
-    images: [cascoCross, cascoIntegral, cascoModular],
+      "Cepillo Limpia Cadena Motocicleta 1 pieza. Diseño de cerdas duraderas para eliminar suciedad y grasa. Mango ergonómico para un agarre cómodo durante la limpieza de la cadena.  Ideal para mantener la cadena de tu moto o bicicleta en óptimas condiciones, prolongando su vida útil y mejorando el rendimiento.",
+    images: [cepilloCadena],
   },
   {
     id: "13",
@@ -147,11 +156,93 @@ const RAW_PRODUCTS: Product[] = [
     category: "Repuestos",
     price: 9,
     image: Guaya,
-    badge: "Nuevo",
     description:
       "Guaya De Aceleracion (tx 150), DSR. Repuesto original de alta calidad para garantizar un rendimiento óptimo y duradero en tu motocicleta. Compatible con modelos específicos, esta guaya de aceleración es fácil de instalar y proporciona una respuesta suave y precisa al acelerar, mejorando la experiencia de conducción.",
     images: [Guaya],
   },
+  {
+    id: "14",
+    name: "Casco Cross MT Falcon Naranja",
+    category: "Cascos",
+    price: 175,
+    image: cascoCross,
+    badge: "Agotado",
+    description:
+      "Casco off-road con visera MX, ventilación máxima y construcción ABS ligera. Ideal para enduro y motocross.",
+    images: [cascoCross, cascoIntegral, cascoModular],
+  },
+  {
+    id: "15",
+    name: "PAR FAROS LED TIPO LUPAS 2 TONOS",
+    category: "Accesorios",
+    price: 9,
+    image: LuzLedLupa,
+    description:
+      "Faro Led Tipo Lupa con tornillos e interructor, diseñada para defensas de Moto. Iluminación potente con 2 tonos de luz (Ambar y blanco frío). Ideal para mejorar la visibilidad en rutas nocturnas o condiciones climáticas adversas.",
+    images: [LuzLedLupa],
+  },
+  {
+    id: "16",
+    name: "MALLA TIPO PULPO PARA CARGA MOTO",
+    category: "Accesorios",
+    price: 5,
+    image: MallaPulo,
+    description:
+      "Red Malla Para Motos Con Ganchos Elastica Equipaje 6 Puntas. Ideal para asegurar tu carga de manera rápida y eficiente durante tus viajes en moto. La malla elástica se adapta a diferentes formas y tamaños de objetos, mientras que los ganchos resistentes garantizan una sujeción segura en cualquier tipo de moto.",
+    images: [MallaPulo],
+  },
+  {
+    id: "17",
+    name: "Guantes Cuero Pro Racing",
+    category: "Indumentaria",
+    price: 40,
+    badge: "Agotado",
+    image: guantes,
+    description:
+      "Guantes de cuero genuino con protecciones de carbono en nudillos y refuerzo en palma. Cierre con velcro ajustable.",
+    images: [guantes],
+  },
+  {
+    id: "18",
+    name: "PORTAPLACA METALICO UNIVERSAL NEGRO",
+    category: "Accesorios",
+    price: 6,
+    image: Portaplaca,
+    description:
+      "Portaplacas Salvaplaca Decorativo Universal Para Motos. Compatible con la mayoría de las motocicletas. Diseño resistente al agua y vibraciones. Ideal para proteger tu placa de matrícula y agregar un toque personalizado a tu moto.",
+    images: [Portaplaca],
+  },
+  {
+    id: "19",
+    name: "PAR FAROS LED 4 LUPAS 4 TONOS 13X4cm",
+    category: "Accesorios",
+    price: 19,
+    image: FaroLedRectangular,
+    description:
+      "Par Faros led Auxiliares 4 Lupas Rectangulares, Iluminación potente con 4 tonos de luz: (Ambar, blanco frío, Ambar y blanco, Estrobo).",
+    images: [FaroLedRectangular],
+  },
+   {
+    id: "20",
+    name: "FORRO ASIENTO TIPO MALLA",
+    category: "Accesorios",
+    price: 6,
+    image: Forro,
+    description:
+      "Forro De Asiento Tipo Malla Para Moto TX, Kavak, Lechuza, Rex, tigrito. Compatible con la mayoría de los asientos de motocicletas. Diseño de malla transpirable para mayor comodidad y ventilación durante tus viajes en moto. Ideal para proteger tu asiento y mejorar tu experiencia de conducción.",
+    images: [Forro],
+  },
+     {
+    id: "21",
+    name: "CANDADO PARA MOTO CON ALARMA",
+    category: "Accesorios",
+    price: 17,
+    image: Candado,
+    description:
+      "Candado Con Alarma De Disco Para Moto sistema Antirrobo",
+    images: [Candado],
+  },
+ 
 ];
 
 export const PRODUCTS: Product[] = RAW_PRODUCTS.map((p) => ({

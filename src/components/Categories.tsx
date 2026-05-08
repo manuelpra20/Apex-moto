@@ -1,11 +1,11 @@
 const CATEGORIES = [
-  { name: "Cascos", icon: "🪖", count: 124 },
-  { name: "Repuestos", icon: "⚙️", count: 320 },
-  { name: "Accesorios", icon: "🧰", count: 215 },
-  { name: "Aceites", icon: "🛢️", count: 48 },
-  { name: "Cauchos", icon: "🛞", count: 76 },
-  { name: "Indumentaria", icon: "🧥", count: 92 },
-  { name: "Herramientas", icon: "🛠️", count: 0 },
+  { name: "Cascos", icon: "🪖", count: 12 },
+  { name: "Repuestos", icon: "⚙️", count: 32 },
+  { name: "Accesorios", icon: "🧰", count: 21 },
+  { name: "Aceites", icon: "🛢️", count: 15 },
+  { name: "Cauchos", icon: "🛞", count: 6 },
+  { name: "Indumentaria", icon: "🧥", count: 9 },
+  { name: "Herramientas", icon: "🛠️", count: 24 },
 ];
 
 export function Categories() {
