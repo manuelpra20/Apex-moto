@@ -2,16 +2,16 @@ import type { Product } from "@/components/ProductCard";
 import { slugify } from "@/lib/slug";
 
 import cascoIntegral from "@/assets/products/casco-integral.jpg";
-import aceiteMotul from "@/assets/products/motul.jpeg";
+import aceiteMotul from "@/assets/products/motul.JPEG";
 import guantes from "@/assets/products/guantes.jpg";
 import llantaPirelli from "@/assets/products/llanta-pirelli.jpg";
 import cadena from "@/assets/products/cadena.jpg";
-import espejos from "@/assets/products/retrovisor-dr.jpeg";
+import espejos from "@/assets/products/retrovisor-dr.JPEG";
 import cascoModular from "@/assets/products/casco-modular.jpg";
 import frenosBrembo from "@/assets/products/frenos-brembo.jpg";
 import chaqueta from "@/assets/products/chaqueta.jpg";
 import bujias from "@/assets/products/bujias.jpg";
-import soporteCelular from "@/assets/products/porta-telefono.jpeg";
+import soporteCelular from "@/assets/products/porta-telefono.JPEG";
 import cascoCross from "@/assets/products/casco-cross.jpg";
 import Guaya from "@/assets/products/guaya-acelerador.jpg";
 
