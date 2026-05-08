@@ -128,11 +128,62 @@ export function Catalog() {
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {items.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {pagedItems.map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+            </div>
+
+            {totalPages > 1 && (
+              <nav
+                aria-label="Paginación de productos"
+                className="mt-10 flex flex-wrap items-center justify-center gap-2"
+              >
+                <button
+                  onClick={() => goToPage(page - 1)}
+                  disabled={page === 1}
+                  aria-label="Página anterior"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-white/15 disabled:hover:text-white/80"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+
+                {pageNumbers.map((n, i) =>
+                  n === "…" ? (
+                    <span
+                      key={`dots-${i}`}
+                      className="px-2 text-sm text-white/50"
+                    >
+                      …
+                    </span>
+                  ) : (
+                    <button
+                      key={n}
+                      onClick={() => goToPage(n)}
+                      aria-current={page === n ? "page" : undefined}
+                      className={`h-10 min-w-10 rounded-md px-3 text-sm font-semibold transition-colors ${
+                        page === n
+                          ? "bg-primary text-primary-foreground"
+                          : "border border-white/15 bg-white/5 text-white/80 hover:border-primary hover:text-primary"
+                      }`}
+                    >
+                      {n}
+                    </button>
+                  ),
+                )}
+
+                <button
+                  onClick={() => goToPage(page + 1)}
+                  disabled={page === totalPages}
+                  aria-label="Página siguiente"
+                  className="flex h-10 w-10 items-center justify-center rounded-md border border-white/15 bg-white/5 text-white/80 transition-colors hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-white/15 disabled:hover:text-white/80"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </nav>
+            )}
+          </>
         )}
       </div>
     </section>
