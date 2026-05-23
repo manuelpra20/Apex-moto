@@ -25,10 +25,58 @@ import Portaplaca from "@/assets/products/porta-placas.jpg";
 import FaroLedRectangular from "@/assets/products/lupas-rectangular.jpg";
 import Forro from "@/assets/products/forro-asient.jpg";
 import Candado from "@/assets/products/candado-moto.jpg";
+import Suiche from "@/assets/products/suiche.jpeg";
+import Extintor from "@/assets/products/extintor.jpeg";
+import FiltroGasolina from "@/assets/products/filtro-gasolina.jpeg";
+import PortaTelefono from "@/assets/products/porta-telefono-dos.jpeg";
 
 const RAW_PRODUCTS: Product[] = [
   {
     id: "1",
+    name: "Suiche Universal dos Pases",
+    category: "Accesorios",
+    price: 5,
+    image: Suiche,
+    badge: "Nuevo",
+    description:
+      "Switch/suiche Universal Para Moto Luces On/on/of 2 Pases 12v. Ideal para controlar las luces de tu motocicleta de manera fácil y eficiente. Compatible con la mayoría de las motocicletas. Diseño resistente al agua y vibraciones, garantizando durabilidad y rendimiento en cualquier condición de conducción.",
+    images: [Suiche],
+  },
+  {
+    id: "2",
+    name: "Extintor Portatil para Moto",
+    category: "Herramientas",
+    price: 4,
+    image: Extintor,
+    badge: "Nuevo",
+    description:
+      "Extintor Portátil para Moto. Ideal para brindar seguridad adicional durante tus viajes en moto. Este extintor compacto y fácil de usar es esencial para combatir incendios pequeños y proteger tu seguridad en la carretera. Compatible con la mayoría de las motocicletas, su diseño resistente al agua y vibraciones garantiza durabilidad y confiabilidad en cualquier situación de emergencia.",
+    images: [Extintor],
+  },
+  {
+    id: "3",
+    name: "Filtro De Gasolina Universal",
+    category: "Repuestos",
+    price: 3,
+    image: FiltroGasolina,
+    badge: "Nuevo",
+    description:
+      "Filtro De Gasolina Universal Para Moto. Ideal para mantener el sistema de combustible de tu motocicleta limpio y funcionando de manera eficiente. Este filtro de gasolina universal es compatible con la mayoría de las motocicletas, ayudando a prevenir obstrucciones y garantizar un rendimiento óptimo del motor. Su diseño resistente al agua y vibraciones asegura durabilidad y confiabilidad en cualquier condición de conducción.",
+    images: [FiltroGasolina],
+  },
+    {
+    id: "4",
+    name: "PORTA TELEFONO",
+    category: "Accesorios",
+    price: 3,
+    image: PortaTelefono,
+    badge: "Nuevo",
+    description:
+      "PORTA TELEFONO UNIVERSAL PARA MOTO. Ideal para mantener tu smartphone seguro y accesible durante tus viajes en moto. Este porta teléfono universal es compatible con la mayoría de los smartphones, brindando un soporte resistente al agua y vibraciones para garantizar la seguridad de tu dispositivo en cualquier condición de conducción.",
+    images: [PortaTelefono],
+  },
+   {
+    id: "5",
     name: "JUEGO DE RADIOS CON AURICULAR BAOFENG",
     category: "Accesorios",
     price: 32,
@@ -39,7 +87,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [Radios],
   },
   {
-    id: "2",
+    id: "6",
     name: "Aceite Motul 5100 15W50 Semi-Sintético",
     category: "Aceites",
     price: 18,
@@ -49,7 +97,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [aceiteMotul],
   },
   {
-    id: "3",
+    id: "7",
     name: "PAR FAROS LED 4 LUPAS 5 TONOS 6X6cm",
     category: "Accesorios",
     price: 18,
@@ -59,7 +107,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [FarolupasCuadrada],
   },
   {
-    id: "4",
+    id: "8",
     name: "PAR Cauchos Timsun",
     category: "Cauchos",
     price: 220,
@@ -70,7 +118,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [llantaPirelli],
   },
   {
-    id: "5",
+    id: "9",
     name: "BASE DE LUCES AUXILIARES PAR MOTOS",
     category: "Accesorios",
     price: 12,
@@ -81,7 +129,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [Bases],
   },
   {
-    id: "6",
+    id: "10",
     name: "Espejos Retrovisores DR",
     category: "Accesorios",
     price: 14,
@@ -91,7 +139,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [espejos],
   },
   {
-    id: "7",
+    id: "11",
     name: "PAR FAROS LED TIPO LUPAS 4 TONOS",
     category: "Accesorios",
     price: 14,
@@ -102,7 +150,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [FaroLedCuadrado],
   },
   {
-    id: "8",
+    id: "12",
     name: "JUEGO DE DADOS 12 PZ",
     category: "Herramientas",
     price: 12,
@@ -111,7 +159,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [JuegoDados],
   },
   {
-    id: "9",
+    id: "13",
     name: "PROTECTOR DE ZAPATO NEGRO PARA MOTOS",
     category: "Indumentaria",
     price: 5,
@@ -121,7 +169,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [ProtectorZapato],
   },
   {
-    id: "10",
+    id: "14",
     name: "PAR FAROS LED MINI BUHO 4 TONOS",
     category: "Accesorios",
     price: 16,
@@ -131,7 +179,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [LedBuho],
   },
   {
-    id: "11",
+    id: "15",
     name: "SOPORTE PORTA TELEFONO IMPERMEABLE",
     category: "Accesorios",
     price: 10,
@@ -141,7 +189,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [soporteCelular],
   },
   {
-    id: "12",
+    id: "16",
     name: "CEPILLO LIMPIA CADENA PARA MOTOS",
     category: "Herramientas",
     price: 4,
@@ -151,7 +199,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [cepilloCadena],
   },
   {
-    id: "13",
+    id: "17",
     name: "GUAYA ACELERADOR TX150, DSR",
     category: "Repuestos",
     price: 10,
@@ -161,7 +209,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [Guaya],
   },
   {
-    id: "14",
+    id: "18",
     name: "Casco Cross MT Falcon Naranja",
     category: "Cascos",
     price: 175,
@@ -172,7 +220,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [cascoCross, cascoIntegral, cascoModular],
   },
   {
-    id: "15",
+    id: "19",
     name: "PAR FAROS LED TIPO LUPAS 2 TONOS",
     category: "Accesorios",
     price: 9,
@@ -182,7 +230,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [LuzLedLupa],
   },
   {
-    id: "16",
+    id: "20",
     name: "MALLA TIPO PULPO PARA CARGA MOTO",
     category: "Accesorios",
     price: 5,
@@ -192,7 +240,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [MallaPulo],
   },
   {
-    id: "17",
+    id: "21",
     name: "Guantes Cuero Pro Racing",
     category: "Indumentaria",
     price: 40,
@@ -203,7 +251,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [guantes],
   },
   {
-    id: "18",
+    id: "22",
     name: "PORTAPLACA METALICO UNIVERSAL NEGRO",
     category: "Accesorios",
     price: 6,
@@ -213,7 +261,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [Portaplaca],
   },
   {
-    id: "19",
+    id: "23",
     name: "PAR FAROS LED 4 LUPAS 4 TONOS 13X4cm",
     category: "Accesorios",
     price: 20,
@@ -223,7 +271,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [FaroLedRectangular],
   },
    {
-    id: "20",
+    id: "24",
     name: "FORRO ASIENTO TIPO MALLA",
     category: "Accesorios",
     price: 6,
@@ -233,7 +281,7 @@ const RAW_PRODUCTS: Product[] = [
     images: [Forro],
   },
      {
-    id: "21",
+    id: "25",
     name: "CANDADO PARA MOTO CON ALARMA",
     category: "Accesorios",
     price: 18,
