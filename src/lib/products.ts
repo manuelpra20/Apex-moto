@@ -28,7 +28,7 @@ import Candado from "@/assets/products/candado-moto.jpg";
 import Suiche from "@/assets/products/suiche.jpeg";
 import Extintor from "@/assets/products/extintor.jpeg";
 import FiltroGasolina from "@/assets/products/filtro-gasolina.jpeg";
-import PortaTelefono from "@/assets/products/porta-telefono-dos.jpeg";
+import PortaTelefono from "@/assets/products/porta-telefono-dos.jpeg"; 
 
 const RAW_PRODUCTS: Product[] = [
   {
