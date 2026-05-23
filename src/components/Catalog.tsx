@@ -1,14 +1,21 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ProductCard } from "./ProductCard";
 import { PRODUCTS, CATEGORIES } from "@/lib/products";
-import { useSearchQuery, setSearchQuery } from "@/lib/search-store";
+import {
+  useSearchQuery,
+  setSearchQuery,
+  useCatalogPage,
+  setCatalogPage,
+  useCatalogFilter,
+  setCatalogFilter,
+} from "@/lib/search-store";
 
 const PAGE_SIZE = 12;
 
 export function Catalog() {
-  const [filter, setFilter] = useState("Todos");
-  const [page, setPage] = useState(1);
+  const filter = useCatalogFilter();
+  const page = useCatalogPage();
   const query = useSearchQuery();
 
   const items = useMemo(() => {
@@ -27,12 +34,12 @@ export function Catalog() {
 
   // Reset a la página 1 cuando cambian filtros o búsqueda
   useEffect(() => {
-    setPage(1);
+    setCatalogPage(1);
   }, [filter, query]);
 
   // Si la página actual queda fuera de rango (p.ej. al filtrar), corrige
   useEffect(() => {
-    if (page > totalPages) setPage(totalPages);
+    if (page > totalPages) setCatalogPage(totalPages);
   }, [page, totalPages]);
 
   const pagedItems = useMemo(
@@ -42,7 +49,7 @@ export function Catalog() {
 
   function goToPage(p: number) {
     const next = Math.min(Math.max(1, p), totalPages);
-    setPage(next);
+    setCatalogPage(next);
     const el = document.getElementById("catalogo");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
@@ -92,7 +99,7 @@ export function Catalog() {
           {CATEGORIES.map((f) => (
             <button
               key={f}
-              onClick={() => setFilter(f)}
+              onClick={() => setCatalogFilter(f)}
               className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                 filter === f
                   ? "bg-primary text-primary-foreground"
