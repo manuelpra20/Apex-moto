@@ -18,8 +18,7 @@ const NAV = [
 const estilos = {
     maxWidth: '600px',
     width: '130px',
-    marginTop: '10px',
-    marginLeft: '70px'
+    marginTop: '10px'
 };
 
 export function Header() {
