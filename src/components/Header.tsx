@@ -79,8 +79,8 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 md:px-6">
-        <a href="/#inicio" onClick={(e) => handleNavClick(e, "inicio")} className="flex items-center gap-2">
+      <div className="relative mx-auto flex h-18 max-w-7xl items-center justify-center px-4 md:static md:justify-between md:px-6">
+        <a href="/#inicio" onClick={(e) => handleNavClick(e, "inicio")} className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 md:static md:translate-x-1/2">
           <img
             src={logo}
             style={estilos}
@@ -105,7 +105,7 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="absolute right-4 flex items-center gap-2 md:static">
           {/* Buscador desktop */}
           <div ref={searchRef} className="relative hidden md:block">
             {searchOpen ? (
