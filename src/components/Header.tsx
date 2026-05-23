@@ -34,6 +34,7 @@ export function Header() {
   function handleNavClick(e: React.MouseEvent, hash: string) {
     e.preventDefault();
     setOpen(false);
+    if (hash === "inicio" || hash === "catalogo") resetCatalog();
     if (pathname !== "/") {
       navigate({ to: "/", hash });
     } else {
