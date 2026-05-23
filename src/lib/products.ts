@@ -52,7 +52,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "3",
     name: "PAR FAROS LED 4 LUPAS 5 TONOS 6X6cm",
     category: "Accesorios",
-    price: 17,
+    price: 18,
     image: FarolupasCuadrada,
     badge: "Mas Vendido",
     description: "Par Faros led Auxiliares 4 Lupas, Iluminación potente con 5 tonos de luz: (Ambar, blanco frío, Ambar y blanco, Estrobo y rojo).",
@@ -124,7 +124,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "10",
     name: "PAR FAROS LED MINI BUHO 4 TONOS",
     category: "Accesorios",
-    price: 15,
+    price: 16,
     image: LedBuho,
     description:
       "Faros Led Mini Buo AntiNiebla De Conducción Para Motocicleta. Iluminación potente con 4 tonos de luz: (Ambar, blanco frío, Ambar y blanco y Estrobo). Diseño resistente al agua y vibraciones. Ideal para mejorar la visibilidad en rutas nocturnas o condiciones climáticas adversas.",
@@ -154,7 +154,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "13",
     name: "GUAYA ACELERADOR TX150, DSR",
     category: "Repuestos",
-    price: 9,
+    price: 10,
     image: Guaya,
     description:
       "Guaya De Aceleracion (tx 150), DSR. Repuesto original de alta calidad para garantizar un rendimiento óptimo y duradero en tu motocicleta. Compatible con modelos específicos, esta guaya de aceleración es fácil de instalar y proporciona una respuesta suave y precisa al acelerar, mejorando la experiencia de conducción.",
@@ -216,7 +216,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "19",
     name: "PAR FAROS LED 4 LUPAS 4 TONOS 13X4cm",
     category: "Accesorios",
-    price: 19,
+    price: 20,
     image: FaroLedRectangular,
     description:
       "Par Faros led Auxiliares 4 Lupas Rectangulares, Iluminación potente con 4 tonos de luz: (Ambar, blanco frío, Ambar y blanco, Estrobo).",
@@ -236,7 +236,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "21",
     name: "CANDADO PARA MOTO CON ALARMA",
     category: "Accesorios",
-    price: 17,
+    price: 18,
     image: Candado,
     description:
       "Candado Con Alarma De Disco Para Moto sistema Antirrobo",
