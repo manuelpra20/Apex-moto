@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
 import logo from "@/assets/logo2.png";
 import { PRODUCTS } from "@/lib/products";
-import { setSearchQuery, scrollToCatalog } from "@/lib/search-store";
+import { setSearchQuery, scrollToCatalog, resetCatalog } from "@/lib/search-store";
 import { formatPrice } from "@/components/ProductCard";
 
 const NAV = [
@@ -34,6 +34,7 @@ export function Header() {
   function handleNavClick(e: React.MouseEvent, hash: string) {
     e.preventDefault();
     setOpen(false);
+    if (hash === "inicio" || hash === "catalogo") resetCatalog();
     if (pathname !== "/") {
       navigate({ to: "/", hash });
     } else {
