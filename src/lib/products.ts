@@ -68,7 +68,7 @@ const RAW_PRODUCTS: Product[] = [
     id: "4",
     name: "PORTA TELEFONO",
     category: "Accesorios",
-    price: 3,
+    price: 10,
     image: PortaTelefono,
     badge: "Nuevo",
     description:
