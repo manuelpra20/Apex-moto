@@ -50,8 +50,13 @@ export function Catalog() {
   function goToPage(p: number) {
     const next = Math.min(Math.max(1, p), totalPages);
     setCatalogPage(next);
-    const el = document.getElementById("catalogo");
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    requestAnimationFrame(() => {
+      const el = document.getElementById("catalogo");
+      if (!el) return;
+      const headerOffset = 80;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    });
   }
 
   // Construye [1, '…', 4, 5, 6, '…', 10] para no saturar
